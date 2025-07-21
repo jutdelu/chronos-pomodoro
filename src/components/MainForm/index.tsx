@@ -1,18 +1,27 @@
 import { PlayCircleIcon } from 'lucide-react';
+import { useRef } from 'react';
 import { Cycles } from '../Cycles';
 import { DefaultButton } from '../DefaultButton';
 import { DefaultInput } from '../DefaultInput';
 
 export const MainForm = () => {
+  const taskNameInput = useRef<HTMLInputElement>(null);// não utiliza o input em tempo real, somente quando o formulário for enviado
+
+  const handleCreateNewTask = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+  };
+
   return (
-    <form className='form' action=''>
+    <form onSubmit={handleCreateNewTask} className='form' action=''>
       <div className='formRow'>
         <DefaultInput
-          labelText='oioi'
+          labelText='task'
           id='meuInput'
           type='text'
-          title='titulo'
           placeholder='digite algo'
+          // value={taskName}
+          // onChange={e=>setTaskName(e.target.value)}
+          ref={taskNameInput}
         />
       </div>
       <div className='formRow'>
