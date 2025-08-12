@@ -6,5 +6,6 @@ export type TaskModel = {
   duration: number;
   startDate: number | null; //quando o timer chega ao fim
   completeDate: number | null; //quando a task é interrompida
+  interruptDate: number | null;
   type: keyof TaskStateModel['config'];
 };
